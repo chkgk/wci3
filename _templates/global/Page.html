@@ -1,0 +1,35 @@
+{% extends "otree/Page.html" %}
+{% load otree static %}
+
+{% block global_styles  %}
+    <style>
+        table {
+            border: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        table td, table th {
+            border: 1px solid black;
+            padding: 5px;
+            vertical-align: middle;
+        }  
+
+        td.inner_cell_right {
+            border-left: 0px;
+        }
+
+        td.inner_cell_left {
+            border-right: 0px;
+        }
+
+        .page-header {
+            padding-top: 5px !important;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block global_scripts  %}
+{% endblock %}

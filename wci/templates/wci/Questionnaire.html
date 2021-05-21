@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+
+{% block content %}
+
+    <p>Thank you very much for completing the decision tasks. We would now like to ask you to fill in a short questionnaire about yourself.</p>
+
+    {% formfield player.age %}
+
+    {% formfield player.gender %}
+
+    {% formfield player.education %}
+
+    {% formfield player.field_of_study %}
+
+    {% formfield player.occupation %}
+    
+    <div class="form-group required">
+        <label for="id_country" class="col-form-label">Please indicate your citizenship:</label>
+        <select class="form-control" name="nationality" id="id_nationality" required>
+            <option value selected class="form-control">---------</option>
+            {% for country in country_list %}
+                <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+        {% if form.nationality.errors %}<span style="color: red;">{{ form.nationality.errors.0 }}</span>{% endif %}
+    </div>
+
+    <div class="center">{% next_button %}</div>
+
+{% endblock %}

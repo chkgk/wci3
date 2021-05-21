@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Instructions (1/2)
+{% endblock %}
+
+{% block content %}
+    <h5>Boxes and Balls</h5>
+    <p>In this experiment, each decision situation features two boxes (like the two below) which contain the same fixed number of balls. Each box is labeled with a capital letter, so they are easy to distinguish.</p>
+    <p>Each ball is either black <img src="{% static "wci/black.png" %}" width="15" alt="ball">, white <img src="{% static "wci/white.png" %}" width="15" alt="ball">, blue <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, or grey <img src="{% static "wci/grey.png" %}" width="15" alt="ball">. </p>
+    <p>For one of the two boxes (e.g. Box X below), you will know how many balls there are of each color. <br>
+    For the other box (e.g. Box Y below), you will only know the exact colors of some of the balls. You will remain uncertain about the color of the other balls. You only know that each ball of uncertain color is either black, or, white. That is, any combination of black and white balls is possible for the group of uncertain balls.</p>
+    <p>The boxes and balls will be described and represented graphically similar to the example below. Balls of uncertain color are shown mixed black and white <img src="{% static "wci/uncertain.png" %}" width="15"  alt="ball">.</p>
+    <p><em>Example boxes:</em></p>
+    <div align="center">
+        <p>Each box contains 100 balls.<br/>
+        Box X contains 10 black balls, 10 white balls, 40 grey balls, and 40 blue balls.<br/>
+        Box Y contains 20 uncertain balls, each of which can be either black or white, 40 grey balls, and 40 blue balls.</p>
+        <img src="{% static "wci/example.png" %}" alt="example boxes" width="500">
+    </div>
+    <p></p>
+
+    <div class="center">{% next_button %}</div>
+
+{% endblock %}

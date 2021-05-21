@@ -1,0 +1,365 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    {% if player.decision_order == 1 %}
+        {% if player.treatment == 5 or player.treatment == 6 %}
+            Decision G
+        {% else %}
+            Decision U
+        {% endif %}
+    {% else %}
+        {% if player.treatment == 5 or player.treatment == 6 %}
+            Decision U
+        {% else %}
+            Decision G
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+        .form-check-input {
+            margin: 0 !important;
+            position: relative !important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div align="center">
+        <p>Each box contains 100 balls.<br/>
+        {% if player.treatment == 1 %}
+            {% if player.decision_order == 2 %}
+                Box C contains 10 black balls, 10 white balls, and 80 blue balls.<br/>
+                Box N contains 20 uncertain balls, each of which can be either black or white, and 80 blue balls.</p>
+                <img src="{% static "wci/decision_1.png" %}" alt="decision image" width="500">
+            {% else %}
+                Box Q contains 10 black balls, 10 white balls, and 80 grey balls.<br/>
+                Box T contains 20 uncertain balls, each of which can be either black or white, and 80 grey balls.</p>
+                <img src="{% static "wci/decision_2.png" %}" alt="decision image" width="500">
+            {% endif %}
+        {% elif player.treatment == 2 %}
+            {% if player.decision_order == 2 %}
+                Box C contains 10 black balls, 10 white balls, and 80 blue balls.<br/>
+                Box N contains 20 uncertain balls, each of which can be either black or white, and 80 blue balls.</p>
+                <img src="{% static "wci/decision_1.png" %}" alt="decision image" width="500">
+            {% else %}
+                Box Q contains 10 black balls, 10 white balls, and 80 grey balls.<br/>
+                Box T contains 20 uncertain balls, each of which can be either black or white, and 80 grey balls.</p>
+                <img src="{% static "wci/decision_2.png" %}" alt="decision image" width="500">
+            {% endif %}
+        {% elif player.treatment == 3 %}
+            {% if player.decision_order == 2 %}
+                Box C contains 10 black balls, 10 white balls, and 80 blue balls.<br/>
+                Box N contains 20 uncertain balls, each of which can be either black or white, and 80 blue balls.</p>
+                <img src="{% static "wci/decision_1.png" %}" alt="decision image" width="500">
+            {% else %}
+                Box Q contains 10 black balls, 10 white balls, and 80 grey balls.<br/>
+                Box T contains 20 uncertain balls, each of which can be either black or white, and 80 grey balls.</p>
+                <img src="{% static "wci/decision_2.png" %}" alt="decision image" width="500">
+            {% endif %}
+        {% elif player.treatment == 5 %}
+            {% if player.decision_order == 1 %}
+                Box C contains 10 black balls, 10 white balls, and 80 blue balls.<br/>
+                Box N contains 20 uncertain balls, each of which can be either black or white, and 80 blue balls.</p>
+                <img src="{% static "wci/decision_1.png" %}" alt="decision image" width="500">
+            {% else %}
+                Box Q contains 10 black balls, 10 white balls, and 80 grey balls.<br/>
+                Box T contains 20 uncertain balls, each of which can be either black or white, and 80 grey balls.</p>
+                <img src="{% static "wci/decision_2.png" %}" alt="decision image" width="500">
+            {% endif %}
+        {% else %}
+            {% if player.decision_order == 1 %}
+                Box C contains 10 black balls, 10 white balls, and 80 blue balls.<br/>
+                Box N contains 20 uncertain balls, each of which can be either black or white, and 80 blue balls.</p>
+                <img src="{% static "wci/decision_1.png" %}" alt="decision image" width="500">
+            {% else %}
+                Box Q contains 10 black balls, 10 white balls, and 80 grey balls.<br/>
+                Box T contains 20 uncertain balls, each of which can be either black or white, and 80 grey balls.</p>
+                <img src="{% static "wci/decision_2.png" %}" alt="decision image" width="500">
+            {% endif %}
+        {% endif %}
+    </div>
+<p>&nbsp;</p>
+<h5>Choose one of these four bets:</h5>
+<table width="100%">
+    <tbody>
+        <tr>
+            <td style="text-align: center;" width="10%" class="inner_cell_left">
+                <p><b>Bet 1</b></p>
+                <p><input class="form-check-input" type="radio" id="id_decision2-0" name="decision2" required="" value="1"></p>
+            </td>
+            <td width="40%" class="inner_cell_right">
+                {% if player.treatment == 1 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 2 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 3 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box C.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $50.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $50.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 4 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 5 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 6 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td style="text-align: center;" width="10%" class="inner_cell_left">
+                <p><b>Bet 2</b></p>
+                <p><input class="form-check-input" type="radio" id="id_decision2-1" name="decision2" required="" value="2"></p>
+            </td>
+            <td width="40%" class="inner_cell_right">
+                {% if player.treatment == 1 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box N.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 2 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box N.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 3 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box N.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $50.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 4 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box N.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 5 %}
+                    {% if player.decision_order == 1 %}
+                        <p><em>A ball is randomly drawn from Box N.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $50.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 6 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box N.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $50.</em></p>
+                    {% endif %}
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;" width="10%" class="inner_cell_left">
+                <p><b>Bet 3</b></p>
+                <p><input class="form-check-input" type="radio" id="id_decision2-2" name="decision2" required="" value="3"></p>
+            </td>
+            <td width="40%" class="inner_cell_right">
+                {% if player.treatment == 1 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box C.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 2 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 3 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box C.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 4 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 5 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box C.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 6 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box C.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box Q.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td style="text-align: center;" width="10%" class="inner_cell_left">
+                <p><b>Bet 4</b></p>
+                <p><input class="form-check-input" type="radio" id="id_decision2-3" name="decision2" required="" value="4"></p>
+            </td>
+            <td width="40%" class="inner_cell_right">
+                {% if player.treatment == 1 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box N.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 2 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box N.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 3 %}
+                    {% if player.decision_order == 2 %}
+                        <p><em>A ball is randomly drawn from Box N.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 4 %}
+                    {% if player.decision_order == 2%}
+                        <p><em>A ball is randomly drawn from Box N.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 5 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box N.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you win $0.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br/> 
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you win $50.</em></p>
+                    {% endif %}
+                {% elif player.treatment == 6 %}
+                    {% if player.decision_order == 1%}
+                        <p><em>A ball is randomly drawn from Box N.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% else %}
+                        <p><em>A ball is randomly drawn from Box T.<br/>
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball">, you lose $50.<br/>
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    {% endif %}
+                {% endif %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+    <div class="center">{% next_button %}</div>
+
+{% endblock %}

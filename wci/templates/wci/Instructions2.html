@@ -1,0 +1,128 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Instructions (2/2)
+{% endblock %}
+
+{% block content %}
+    <h5>Bets and decisions</h5>
+
+    {% if player.treatment == 1 or player.treatment == 3 %}
+        <p>In each decision situation, you have to choose one of four different bets. The bets differ in how much they pay (hypothetically) based on the color of a randomly drawn ball from one of the boxes. Each bet specifies the box from which that ball is drawn and the payoffs depending on its color.</p>
+    {% else %}
+        <p>In each decision situation, you have to choose one of four different bets. The bets differ in how much you lose (hypothetically) based on the color of a randomly drawn ball from one of the boxes. Each bet specifies the box from which that ball is drawn and the losses depending on its color.</p>
+    {% endif %}
+    
+    
+
+
+    <p><em>Example bets:</em></p>
+
+
+    {% if player.treatment == 1 or player.treatment == 3 %}
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 1</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box X.<br />
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $10.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    </td>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 2</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box Y.<br />
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $10.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $0.</em></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 3</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box X.<br />
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $10.</em></p>
+                    </td>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 4</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box Y.<br />
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you win $0.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you win $10.</em></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 1</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box X.<br /> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $10.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    </td>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 2</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box Y.<br /> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $10.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $0.</em></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 3</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box X.<br /> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $10.</em></p>
+                    </td>
+                    <td style="text-align: center;" width="10%" class="inner_cell_left">
+                        <p><strong>Bet 4</strong></p>
+                        <p>○</p>
+                    </td>
+                    <td width="40%" class="inner_cell_right">
+                        <p><em>A ball is randomly drawn from Box Y.<br /> 
+                            If it is <img src="{% static "wci/black.png" %}" width="15" alt="ball"> or <img src="{% static "wci/grey.png" %}" width="15" alt="ball">, you lose $0.<br />
+                            If it is <img src="{% static "wci/white.png" %}" width="15" alt="ball"> or <img src="{% static "wci/blue.png" %}" width="15" alt="ball">, you lose $10.</em></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+
+
+    {% if player.treatment == 1 or player.treatment == 3 %}
+        <p><em>In this example, bets 1 and 2 (respectively, 3 and 4) only differ in the box that a ball is drawn from. <br/>
+    Bets 1 and 3 (respectively, 2 and 4) only differ in the payoffs associated with the colors of the balls.</em></p>
+    {% else %}
+        <p><em>In this example, bets 1 and 2 (respectively, 3 and 4) only differ in the box that a ball is drawn from. <br/>
+    Bets 1 and 3 (respectively, 2 and 4) only differ in the losses associated with the colors of the balls.</em></p>
+    {% endif %}
+
+
+    
+
+    <div class="center">{% next_button %}</div>
+
+{% endblock %}

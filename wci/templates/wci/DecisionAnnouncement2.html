@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Second Decision
+{% endblock %}
+
+{% block content %}
+    <p>You have now completed the first decision. Your second decision is:</p> 
+    <div class="center">
+        {% if player.treatment == 5 or player.treatment == 6 %}
+                {% if player.decision_order == 1 %}
+                    <p class="fw-bold">Decision G</p>
+                {% else %}
+                    <p class="fw-bold">Decision U</p>
+                {% endif %}
+            {% else %}
+                {% if player.decision_order == 1 %}
+                    <p class="fw-bold">Decision U</p>
+                {% else %}
+                    <p class="fw-bold">Decision G</p>
+                {% endif %}
+            {% endif %}
+    </div>
+    <div class="center">{% next_button %}</div>
+{% endblock %}
+
+

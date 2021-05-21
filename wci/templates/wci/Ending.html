@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Completion Code
+{% endblock %}
+
+{% block content %}
+    <p>Thank you very much for your participation. Your answers were submitted.<br> Please enter the following code on Amazon Mechanical Turk:</p>
+    <p style="text-align: center; font-size: 3em; font-weight: bold; font-family: monospace">WCI2021</p>
+
+    <div class="center">{% next_button %}</div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(".otree-btn-next").html('Finish Study');
+    </script>
+{% endblock %}

@@ -22,14 +22,6 @@ SESSION_CONFIGS = [
         treatment=2
     ),
     dict(
-        name='wci_gain_separator',
-        display_name='WCI - blue large - gain - with separator page',
-        app_sequence=['wci'],
-        num_demo_participants=4,
-        treatment=1,
-        separator_page=True
-    ),
-    dict(
         name='wci_gain_twice',
         display_name='WCI - blue large - gain - same twice',
         app_sequence=['wci'],
@@ -42,14 +34,6 @@ SESSION_CONFIGS = [
         app_sequence=['wci'],
         num_demo_participants=4,
         treatment=6
-    ),
-    dict(
-        name='wci_gain_twice_separator',
-        display_name='WCI - blue large - gain - same twice - with separator page',
-        app_sequence=['wci'],
-        num_demo_participants=4,
-        treatment=5,
-        separator_page=True
     )
 ]
 

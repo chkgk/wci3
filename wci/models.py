@@ -49,8 +49,6 @@ class Constants(BaseConstants):
     treatments_to_play_if_random = [1, 2]
 
 
-
-
 class Subsession(BaseSubsession):
     def creating_session(self):
         # setup player objects
@@ -97,9 +95,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     # Treatment and order
-    treatment = models.IntegerField(min=1, max=4, )
+    treatment = models.IntegerField(min=1, max=6)
     treatment_name = models.StringField()
-    decision_order = models.IntegerField(min=1, max=2, )
+    decision_order = models.IntegerField(min=1, max=2)
     order_name = models.StringField()
 
     captcha = models.BooleanField(initial=False)
@@ -114,8 +112,8 @@ class Player(BasePlayer):
 
 
     # demographics
-    age = models.IntegerField(verbose_name="How old are you?", max=120, )
-    gender = models.StringField(choices=["female", "male", "other", "I prefer not to tell"], 
+    age = models.IntegerField(verbose_name="How old are you?", max=120)
+    gender = models.StringField(choices=["female", "male", "other", "I prefer not to tell"],
         label="What is your gender?", widget=widgets.RadioSelectHorizontal)
     education = models.IntegerField(verbose_name="Which is the highest level of education you have attained?",
         choices=[
@@ -153,10 +151,7 @@ class Player(BasePlayer):
     blue_small_amount = models.BooleanField()
     blue_large_amount = models.BooleanField()
 
-
-
     def set_demographic_indicators(self):
-        # female indicator
         if self.gender == "female":
             self.female = True
         else:
@@ -187,13 +182,13 @@ class Player(BasePlayer):
         else:
             self.wci_violated = False
 
-
     def prepare_data_for_analysis(self):
         self.set_ambiguity_aversion()
-        self.set_order_invariant_vars()
-        self.check_wci_violation()
-        self.set_demographic_indicators()
+        if self.treatment not in [5, 6]:
+            self.set_order_invariant_vars()
+            self.check_wci_violation()
 
+        self.set_demographic_indicators()
 
     def set_order_invariant_vars(self):
         if self.decision_order == 1:

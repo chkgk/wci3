@@ -17,10 +17,7 @@ class Instructions2(Page):
 
 
 class DecisionAnnouncement(Page):
-    def vars_for_template(self):
-        return {
-            'separator': self.session.config.get('separator_page', False)
-        }
+    pass
 
 class Decision1(Page):
     form_model = 'player'
@@ -28,8 +25,8 @@ class Decision1(Page):
 
 
 class DecisionAnnouncement2(Page):
-    def is_displayed(self):
-        return self.session.config.get('separator_page', False)
+    pass
+
 
 class Decision2(Page):
     form_model = 'player'

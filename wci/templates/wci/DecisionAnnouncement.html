@@ -1,45 +1,18 @@
 {% extends "global/Page.html" %}
 
 {% block title %}
-    {% if separator %}
-        First Decision
-    {% else %}
-        Decisions
-    {% endif %}
+    First Decision
 {% endblock %}
 
 {% block content %}
-    {% if separator %}
-        <p>You have now completed the instructions. The actual study starts now. Your first decision is:</p>
-        <div class="center">
-            {% if player.decision_order == 1 %}
-                <p class="fw-bold">Decision G</p>
-            {% else %}
-                <p class="fw-bold">Decision U</p>
-            {% endif %}
-        </div>
-    {% else %}
-    <p>You have now completed the instructions. The actual study starts now. On the next pages you will take the two decisions:</p>
-        <div class="center">
-            {% if player.treatment == 5 or player.treatment == 6 %}
-                {% if player.decision_order == 1 %}
-                    <p class="fw-bold">Decision G</p>
-                    <p class="fw-bold">Decision G</p>
-                {% else %}
-                    <p class="fw-bold">Decision U</p>
-                    <p class="fw-bold">Decision U</p>
-                {% endif %}
-            {% else %}
-                {% if player.decision_order == 1 %}
-                    <p class="fw-bold">Decision G</p>
-                    <p class="fw-bold">Decision U</p>
-                {% else %}
-                    <p class="fw-bold">Decision U</p>
-                    <p class="fw-bold">Decision G</p>
-                {% endif %}
-            {% endif %}
-        </div>
-    {% endif %}
+    <p>You have now completed the instructions. The actual study starts now. Your first decision is:</p>
+    <div class="center">
+        {% if player.decision_order == 1 %}
+            <p class="fw-bold">Decision G</p>
+        {% else %}
+            <p class="fw-bold">Decision U</p>
+        {% endif %}
+    </div>
     <div class="center">{% next_button %}</div>
 {% endblock %}
 

@@ -99,6 +99,7 @@ class Player(BasePlayer):
     treatment_name = models.StringField()
     decision_order = models.IntegerField(min=1, max=2)
     order_name = models.StringField()
+    wave = models.IntegerField(initial=2)
 
     captcha = models.BooleanField(initial=False)
 

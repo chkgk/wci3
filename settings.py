@@ -44,7 +44,7 @@ SESSION_CONFIGS = [
 
 SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00,
-    participation_fee=0.75,
+    participation_fee=0.85,
     doc="",
     mturk_hit_settings=dict(
         keywords='bonus, study, choices, research, risk',

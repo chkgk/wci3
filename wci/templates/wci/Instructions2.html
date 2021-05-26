@@ -7,7 +7,7 @@
 {% block content %}
     <h5>Bets and decisions</h5>
 
-    {% if player.treatment == 1 or player.treatment == 3 %}
+    {% if player.treatment == 1 or player.treatment == 3 or player.treatment == 5 %}
         <p>In each decision situation, you have to choose one of four different bets. The bets differ in how much they pay (hypothetically) based on the color of a randomly drawn ball from one of the boxes. Each bet specifies the box from which that ball is drawn and the payoffs depending on its color.</p>
     {% else %}
         <p>In each decision situation, you have to choose one of four different bets. The bets differ in how much you lose (hypothetically) based on the color of a randomly drawn ball from one of the boxes. Each bet specifies the box from which that ball is drawn and the losses depending on its color.</p>
@@ -19,7 +19,7 @@
     <p><em>Example bets:</em></p>
 
 
-    {% if player.treatment == 1 or player.treatment == 3 %}
+    {% if player.treatment == 1 or player.treatment == 3 or player.treatment == 5 %}
         <table width="100%">
             <tbody>
                 <tr>
@@ -112,7 +112,7 @@
     {% endif %}
 
 
-    {% if player.treatment == 1 or player.treatment == 3 %}
+    {% if player.treatment == 1 or player.treatment == 3 or player.treatment == 5 %}
         <p><em>In this example, bets 1 and 2 (respectively, 3 and 4) only differ in the box that a ball is drawn from. <br/>
     Bets 1 and 3 (respectively, 2 and 4) only differ in the payoffs associated with the colors of the balls.</em></p>
     {% else %}
@@ -120,8 +120,6 @@
     Bets 1 and 3 (respectively, 2 and 4) only differ in the losses associated with the colors of the balls.</em></p>
     {% endif %}
 
-
-    
 
     <div class="center">{% next_button %}</div>
 

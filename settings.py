@@ -64,6 +64,10 @@ SESSION_CONFIG_DEFAULTS = dict(
                 'QualificationTypeId': '3PUFTE5I6TEJB17LHBU2381230XW29',
                 'Comparator': 'DoesNotExist'
             },
+            {
+                'QualificationTypeId': 'DRSBCTK5PTK8R5271V4A1YYYSQDJB',
+                'Comparator': 'DoesNotExist'
+            },
         ],
         grant_qualification_id='3PUFTE5I6TEJB17LHBU2381230XW29',
     )
